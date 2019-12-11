@@ -1,0 +1,23 @@
+# Fdb version 3
+["pdflatex"] 1576084640 "/home/adam/School/comp3203/FinalPrep/2018.tex" "/home/adam/School/comp3203/FinalPrep/2018.pdf" "2018" 1576084640
+  "/home/adam/School/comp3203/FinalPrep/2018.aux" 1576084640 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/home/adam/School/comp3203/FinalPrep/2018.tex" 1576084640 6084 e7bce66c4f4ef4978469fa8fcad071b4 ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1572595918 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1572595918 36281 c355509802a035cadc5f15869451dcee ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1572595918 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1572595918 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1572595918 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1572595918 32716 08e384dc442464e7285e891af9f45947 ""
+  "/usr/share/texmf-dist/tex/latex/base/article.cls" 1572595918 19931 9ab70b303cca263e0120c205e98dee99 ""
+  "/usr/share/texmf-dist/tex/latex/base/size10.clo" 1572595918 8405 41d2bb848d0640ceaee96d90b89378b7 ""
+  "/usr/share/texmf-dist/web2c/texmf.cnf" 1572595918 33301 a3134070eacafb10b1f371612ce2650d ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1573892784 4572998 f9631eebba48c3ee98e5d310044b0a09 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1573892771 8044940 d2e91ccdab6143c2fa10a2cc7bd1957f ""
+  "2018.aux" 1576084640 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
+  "2018.tex" 1576084640 6084 e7bce66c4f4ef4978469fa8fcad071b4 ""
+  (generated)
+  "2018.log"
+  "2018.pdf"
+  "/home/adam/School/comp3203/FinalPrep/2018.log"
+  "2018.aux"
+  "/home/adam/School/comp3203/FinalPrep/2018.pdf"
