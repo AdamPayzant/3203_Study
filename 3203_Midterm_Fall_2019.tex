@@ -1,0 +1,293 @@
+\documentclass[a4 paper]{article}
+% Set target color model to RGB
+\usepackage[inner=2.0cm,outer=2.0cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage[rgb]{xcolor}
+\usepackage{verbatim}
+\usepackage{subcaption}
+\usepackage{amsgen,amsmath,amstext,amsbsy,amsopn,tikz,amssymb,tkz-linknodes}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true, urlcolor=blue,  linkcolor=blue, citecolor=blue]{hyperref}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{rotating}
+%\usetikzlibrary{through,backgrounds}
+\hypersetup{%
+pdfauthor={Christian Belair},%
+pdftitle={3005 Exam Revire (2019)},%
+pdfkeywords={Tikz,latex,bootstrap,uncertaintes},%
+pdfcreator={PDFLaTeX},%
+pdfproducer={PDFLaTeX},%
+}
+%\usetikzlibrary{shadows}
+% \usepackage[francais]{babel}
+\usepackage{booktabs}
+\input{macros.tex}
+
+\begin{document}
+\homework{Exam Review}{Exam Date: December 9th 2019 (9:00 AM)}{Christian Belair}{}{\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}{\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}
+\textbf{Important Note}: The University Schema and the ER Diagram associated are at the end of the document.
+
+\problem{1:}{1}
+The lowest frequency of a signal 2, 200 $Hz$ and the highest 7, 800 $Hz$.
+What is the bandwidth?
+\begin{enumerate}
+	\item 2, 800 $Hz$
+	\item 8, 000 $Hz$
+	\item 5, 600 $Hz$
+	\item 4, 000 $Hz$
+\end{enumerate}
+\solution 5, 600 $Hz$
+
+\problem{2:}{1}
+What is the period of a signal with frequency 0.05?
+\begin{enumerate}
+	\item 20
+	\item 10
+	\item 40
+	\item .95
+\end{enumerate}
+\solution 20
+
+\problem{3:}{1}
+Which of the following physical layer transmission methods doubles the number of bits?
+\begin{enumerate}
+	\item NRZ-L
+	\item Manchester
+	\item NRZ-I
+	\item 4B/5B
+\end{enumerate}
+\solution Manchester
+
+\problem{4:}{1}
+A sinusoid wave is given as a function $w(t)$ of time $t$ by the formula: $w(t)=6\sin(\frac{\pi}{4}+40\pi t)$. What is the frequency, phase, and amplitude in this order?
+\begin{enumerate}
+	\item frequency 40, phase $\pi/8$, and amplitude 6
+	\item frequency 20, phase $\pi/8$, and amplitude 6
+	\item frequency 20, phase $\pi/4$, and amplitude 3
+	\item frequency 40, phase $\pi/4$, and amplitude 6
+\end{enumerate}
+\solution frequency 20, phase $\pi/8$, and amplitude 6
+
+\problem{5:}{1}
+Why is frequent bit alternation important in the physical layer bit streams?
+\begin{enumerate}
+	\item To improve quality of signal
+	\item To avoid signal collisions
+	\item To prevent baseline wander
+	\item To prevent bit collisions
+\end{enumerate}
+\solution To prevent baseline wander
+
+\problem{6:}{1}
+An adversary is cutting wires (links) to disconnect the nodes of the network depicted above. What is the minimum number of links to be cut so as to partition the network into two connected subnets of size 4 nodes each?
+\begin{enumerate}
+	\item 4
+	\item 2
+	\item 1
+	\item 5
+\end{enumerate}
+\solution 5
+
+\problem{7:}{1}
+What is the redundency of the 2 dimensional parity check algorithm on $m\times n$ bit words as a function of $m$ and $n$?
+\begin{enumerate}
+	\item $\frac{1}{m}+\frac{1}{n}$
+	\item $\frac{1}{mn}$
+	\item $1+\frac{m}{n}$
+	\item $1+\frac{1}{m}+\frac{1}{n}$
+\end{enumerate}
+\solution $1+\frac{1}{m}+\frac{1}{n}$
+
+\problem{8:}{1}
+The bandwidth of a channel is 200 $Mbps$. What is the transmission delay (in seconds) for a 10 $Kb$ packet?
+\begin{enumerate}
+	\item $\frac{1}{2}\cdot 10^{5} s$
+	\item $2\cdot 10^{3} s$
+	\item $10^{-3} s$
+	\item $\frac{1}{2}\cdot 10^{-4} s$
+\end{enumerate}
+\solution $\frac{1}{2}\cdot 10^{-4} s$
+
+\problem{9:}{1}
+How many bits can a transcontinental channel hold if it has one-way latency of 100 $ms$ and a bandwidth of 40 $Mbps$? Express your answer in $Mb$.
+\begin{enumerate}
+	\item 2 $Mb$
+	\item 40 $Mb$
+	\item 4 $Mb$
+	\item 10 $Mb$
+\end{enumerate}
+\solution 4 $Mb$
+
+\problem{10:}{1}
+What is the propagation delay on a 6 $km$ long coaxial cable having speed $3\times10^{8}$ $m/s$?
+\begin{enumerate}
+	\item $2\cdot10^{-5} s$
+	\item $18\cdot10^{-11} s$
+	\item $\frac{1}{2}\cdot10^{-5} s$
+	\item $18\cdot10^{-5} s$
+\end{enumerate}
+\solution $2\cdot10^{-5} s$
+
+\problem{11:}{1}
+What's the max number of errors that the $n\times n$ LRC (Longitudinal Redundancy Check) code can detect?
+\begin{enumerate}
+	\item One
+	\item Two
+	\item $2n$
+	\item $\frac{2}{n}$
+\end{enumerate}
+\solution Two
+
+\problem{12:}{1}
+What's the max number of errors that the LRC (Longitudinal Redundancy Check) code can correct?
+\begin{enumerate}
+	\item $n$
+	\item $\frac{1}{n}$
+	\item Two
+	\item One
+\end{enumerate}
+\solution One
+
+\problem{13:}{1}
+Give the Hamming distance between the bit strings
+\begin{enumerate}
+	\item 7
+	\item 10
+	\item 6
+	\item 8
+\end{enumerate}
+\solution 6
+
+\problem{14:}{1}
+In the CRC code a polynomial is converted to a bit sequence. To what bit sequence is the polynomial $x^{7}+x^{5}+x^{2}+x+1$ converted to?
+\begin{enumerate}
+	\item 10100101
+	\item 11100011
+	\item 10100111
+	\item 10100010
+\end{enumerate}
+\solution 10100111
+
+\problem{15:}{1}
+The result of multiplying in mod2 arithmetic the two polynomials $P(x)=2x+5$ and $Q(x)=4x^{3}+3x-2$ is equal to
+\begin{enumerate}
+	\item $12x^{4}$
+	\item $x^{2}+1$
+	\item $9x^{2}$
+	\item $xx^{2}$
+\end{enumerate}
+\solution $x^{2}+1$
+
+\problem{16:}{1}
+In selective reject ARQ protocol SREJ
+\begin{enumerate}
+	\item the receiver may reject a packet sent by the sender.
+	\item both sender and receiver may reject a packet.
+	\item the sender may reject a packet acknowledged by the receiver.
+	\item the receiver rejects packets sent twice by the sender.
+\end{enumerate}
+\solution the receiver may reject a packet sent by the sender.
+
+\problem(17:){1}
+In the Stop-and-Wait protocol
+\begin{enumerate}
+	\item the receiver must stop and wait after receiving a packet.
+	\item the sender must stop and wait after sending a packet.
+	\item the recevier must stop and  wait after receiving a packet in error.
+	\item the sender must stop and wait after sending a packet in error.
+\end{enumerate}
+\solution the sender must stop and wait after sending a packet.
+
+\problem{18:}{1}
+Four packets enter from each of inputs $in_{0},in_{1},in_{2},in_{3}$ at the same time and exit from ouputs $out_{0},out_{1},out_{2},out_{3}$ following shortest paths. The transmission delay at all the nodes is 1 time unit regardless of the number of packets being processed and there is no processing delay. Propagation delay of all horizontal links is 1 time unit, and of all vertical links 2 time units. Source nodes do not incur transmission and propagation delays. How long (in time units) does it take a packet entering $in_{1}$ to exit at $out_2$?
+\begin{enumerate}
+	\item 12
+	\item 14
+	\item 13
+	\item 15
+\end{enumerate}
+\solution 14
+
+\problem{19:}{1}
+A transmission line has bandwidth 1, 200 Hz and signal to noise ratio 15.
+The (Shannon) capacity of the channel is
+\begin{enumerate}
+	\item 2, 400
+	\item 3, 600
+	\item 9, 600
+	\item 4, 800
+\end{enumerate}
+\solution 4, 800
+
+\problem{20:}{1}
+Initially the four nodes $a,b,c,d$ of the square below have 0,4,0,2 packets, respectively. A flooding algorithm at a node $v$ can deliver one packet per neighbour only if its current value $n_v$ is at least deg($v$). Flooding is done synchronously by all the nodes. What is the result of applying flooding to the graph below after two iterations? Note the links are duplex.
+\begin{enumerate}
+	\item $(n_a,n_b,n_c,n_d)=(0,3,0,3)$
+	\item $(n_a,n_b,n_c,n_d)=(2,0,2,2)$
+	\item $(n_a,n_b,n_c,n_d)=(3,0,3,0)$
+	\item $(n_a,n_b,n_c,n_d)=(2,2,2,0)$
+\end{enumerate}
+\solution $(n_a,n_b,n_c,n_d)=(2,0,2,2)$
+
+\problem{21:}{1}
+A wireless network has packet size 5, 000 $b$ and bit error rate $10^{-4}$. How many bit errors do you expect in a packet?
+\begin{enumerate}
+	\item 2
+	\item 1/2
+	\item 50
+	\item 10
+\end{enumerate}
+\solution 1/2
+
+\problem{22:}{1}
+A wireless network has packet size 5, 000 $b$ and bit error rate $10^{-4}$. Would you recommend a network designer to use this packet length?
+\begin{enumerate}
+	\item YES, because this is always done in wireless.
+	\item YES, because the bit error rate is not high.
+	\item NO, because every tenth packet is expected to have an error.
+	\item NO, because every second packet is expected to have an error.
+\end{enumerate}
+\solution NO, because every second packet is expected to have an error.
+
+\problem{23:}{1}
+Consider a network of $k$ servers $S_1\rightarrow S_2\rightarrow ...\rightarrow S_k$ in tandem. When server $S_i$ sends a packet of length $l$ bits to the next server $S_{i+1}$ it adds a header of length $h$ bits. A packet of $l$ bits enters the network from $S_1$ and exits from $S_k$. What is teh smallest number $k$ (expressed as a function of $l,h$) of servers se that the resulting packet has length $\ge 2l$. (Assume all servers send a packet.)
+\begin{enumerate}
+	\item $k\ge \lfloor{2l/h}\rfloor + 2$
+	\item $k\ge lh$
+	\item $k\ge \lceil{l/h}\rceil$
+	\item $k\ge \lceil{l/2h}\rceil$
+\end{enumerate}
+\solution $k\ge \lceil{l/h}\rceil$
+
+\problem{24:}{1}
+A network uses packets of length $n$ an it is operating over a medium with bit error rate $p$. You are given two fixed bit positions in the packet. What is the probability that these two have errors and the remaining position have none? (Assume teh bit-errors in the packet are independent.)
+\begin{enumerate}
+	\item $p^{2}(1-p)^{n-2}$
+	\item ${n\choose 2} p^{2}(1-p)^{n-2}$
+	\item $p^{2}$
+	\item ${n\choose 2}(1-p)^{n-2}$
+\end{enumerate}
+\solution ${n\choose 2} p^{2}(1-p)^{n-2}$
+
+\problem{25:}{1}
+A source generates messages consisting of $n$ bits. What fraction of the messages have exactly $k$ 1s.
+\begin{enumerate}
+	\item ${n\choose k} 2^{n-k}$
+	\item $2^{-k}$
+	\item $2^{n-k}$
+	\item ${n\choose k} 2^{-n}$
+\end{enumerate}
+\solution ${n\choose k} 2^{-n}$
+
+\problem{26:}{1}
+Consider a line graph of five nodes. What is the average hop-distance between pairs of nodes?
+\begin{enumerate}
+	\item 2
+	\item 2.5
+	\item 3
+	\item 4
+\end{enumerate}
+\solution 2
+
+\end{document}
+
