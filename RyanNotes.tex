@@ -1,0 +1,330 @@
+\documentclass{article}
+
+\begin{document}
+    \section{Peer-to-Peer connectivity}
+    \begin{itemize}
+        \item Line Discipline: Coordinates link systems
+        \item Flow Control: Coordinates amount of data that can be sent or recieved
+        \item Error Control: Receiver must inform sender of lost and/or damaged packets
+        \item Stop and wait
+        \begin{itemize}
+            \item Source transmit frame
+            \item Dest. receives frame and sends ACK
+            \item Source waits for ACK
+            \item Only one frame in transit at a time
+        \end{itemize}
+        \item Sliding window
+        \begin{itemize}
+            \item uses timeouts to detect loss/reordering of messages then retransmits
+            \item Sender sends transmission and if no ACK, resends it
+            \item Receiver anticipates sequence number and sends ACK if the anticipated message is recieved
+        \end{itemize}
+    \end{itemize}
+    \section{Multiaccess Communications}
+    \begin{itemize}
+        \item Mac Protocols
+        \begin{itemize}
+            \item \textbf{Centralized}: Distinguished node (master) makes access decisions for remaining nodes (slaves)
+            \item \textbf{Distributed}: All nodes are equivalent and access decision is derived together
+        \end{itemize}
+        \item Static Partitioning Schemes: Partition transmission medium into seperate dedicated channels
+        \item MAC Schemes: Dynamic/on-demand
+        \item Measuring propagation time
+        \begin{itemize}
+            \item $t_{prop}$ is bit propagation time, $d$ is distance between 2 stations, $v$ = speed of medium
+            \item $t_{prop} = d/v$
+        \end{itemize}
+        \item If user A detects a collision, it must occupy the channel for a period of $2t_{prop}$ time units
+        \item $a = dR/vL$, where $d$ is distance, $v$ is medium speed, $L$ is packet length length, $R$ is bit transmission rate
+        \item Large distances result in low efficiency
+        \item In ethernet w/ broadcasting message passing, every node is listening to the network and may only transmit when the network is silent
+    \end{itemize}
+    \section{LANs: Ethernet}
+    \begin{itemize}
+        \item Uncoordinated Contention
+        \begin{itemize}
+            \item Probability of a successful transmission is equal to the probability that exactly one node transmits - maximizes when $p=\frac{1}{n}$
+            \item $Pr(Success) = np(1-p)^{n-1}$
+        \end{itemize}
+        \item Only way to improve performance of contention is to limit number of users
+        \item Limit contention algorithms resolve collisions after they occur
+        \item Backoff Protocols
+        \begin{itemize}
+            \item Based on poisson distribution
+            \item Queue of stations/nodes, each tracking number of transmit attempts
+        \end{itemize}
+        \item \textbf{CSMA}: Station wishing to transmit must first listen for an idle line
+        \item Collision Detection: If collision is detected, station waits for line to clear before retransmitting
+        \item successful transmission only occurs when stations select different values $a_t \neq b_t$
+        \item \textbf{CSMA 1 Persistance}: Listens and sends if channel is idle, if collision, waits before retransmitting
+        \item \textbf{CSMA non-Persistance}: If channel is busy, waits before listening and retransmits
+        \item \textbf{Tree Splitting}: We know this already
+    \end{itemize}
+    \section{Localization \& GPS}
+    \begin{itemize}
+        \item Triangulation: Using known points to determine the location of another point
+        \item Network Techniques use service providers network to locate device
+        \item Handset Techniques require client software n the device to locate item
+        \item Hybrid Techniques use a combination to determine location
+        \item \textbf{Lateration}
+        \begin{itemize}
+            \item Fixed number of anchor nodes at known positions
+            \item Anchors are synchronized to emit a signal at the same time
+        \end{itemize}
+        \item \textbf{TOA}
+        \begin{itemize}
+            \item $A$ computes distance from $B_1$, $B_2$, $B_3$. A lies on circles centered at $B_1$, $B_2$, $B_3$.
+        \end{itemize}
+        \item \textbf{AOA}
+        \begin{itemize}
+            \item $A$ determines directions from which signals arrive from nodes $B_1$, $B_2$ with respect to a reference axis using array antennas
+            \item Only needs 2 measuring units for 2D and 3 for 3D w/no synchronization
+            \item Not good when there are signal reflections or movement
+        \end{itemize}
+    \end{itemize}
+    \section{Location Awareness}
+    \begin{itemize}
+        \item When a sensor transmit to another sensor located $d$ distance away, the signal power being recieved is $\frac{P}{d^2}$
+        \item \textbf{Rayleigh's Principle}: when $k$ sensors are sensors are transmitting at a time, only the most powerful can be recieved
+        \item Random geometric graphs, formed as as unit disk graphs w/ randomly generate disk centers have also been used as a model of percolation and various other phenomena
+        \item 2 mobile hosts, A, B are adjacent if they are within reach of each other
+        \item \textbf{Gabriel Test}
+        \begin{itemize}
+            \item Assume 2 points A, B are within range, draw a circle w/ diameter AB
+            \item If 3$^{rd}$ point C, remove remove link between AB
+            \item AB is a Gabriel edge if circle with diameter AB has no other points
+        \end{itemize}
+        \item \textbf{Compass Routing}
+        \begin{itemize}
+            \item Start at Source (S) node
+            \item Choose edge with smallest slop and traverse to new point
+            \item Draw line to destination (t) and repeat
+        \end{itemize}
+        \item \textbf{Face routing}
+        \begin{itemize}
+            \item Start at Source (S) node
+            \item Choose face that ST intersects
+            \item Apply left or right hand rule (direction)
+            \item Repeat with faces intersected by ST Until it reaches destination
+            \item \textbf{CANNOT cross line ST while traversing}
+        \end{itemize}
+    \end{itemize}
+    \section{WANS}
+    \begin{itemize}
+        \item LANs (local access network): extend less than 1km
+        \item MANs (metropolitan access network): confined to a city
+        \item WANs (wide access network): Can be world wide
+        \item WAN is a computer network covering a broad area; largest and most well-known is the internet
+        \item Used to connect LANs and other types of networks together
+        \item Many are built for one organization and are private
+        \item Others from ISPs provide connections from an organizations LANs to the internet
+        \item Network contains numerous transmission lines, each connecting to a pair of routers
+        \item Nearly all WANs have \textbf{Store-and-forward Subnets}
+        \begin{itemize}
+            \item Recieving router stores packet until output line is free, then forwards it
+        \end{itemize}
+        \item Interconnecting methods:
+        \begin{itemize}
+            \item Leased line: point-to-point connection between 2 computers
+            \item Circuit Switching: Dedicated circuit path created between 2 end points
+            \item Packet Switching: Devices transport via shared link across carrier internetwork
+            \item Cell Relay: uses fixed length cells (data)  transported
+        \end{itemize}
+        \item Devices
+        \begin{itemize}
+            \item Repeaters: Used at physcal layer
+            \item Bridges: Used at MAC or Data link layer (Nodes are unaware of them)
+            \item Routers: Used at the network layer
+            \item Gateways: Used at higher layer for protocol conversion or security
+        \end{itemize}
+        \item WANs do not relay on their own hardware, rather they can use public/leased/private Communication equipment or combinations
+        \item Switches allow for interconnecting nodes (Star topology)
+        \begin{itemize}
+            \item Networks built by interconnecting switches
+            \item Primary role is forwarding
+        \end{itemize}
+        \item How does a switch decide which input goes to which output
+        \begin{itemize}
+            \item Connectionless (datagram)
+            \item Virtual Circuit (Connections oriented)
+            \item Source Routing
+        \end{itemize}
+        \item Virtual Circuit
+        \begin{itemize}
+            \item Connection setup from host to destination
+            \item long lived (PVC) or dynamically set up by host (SVC)
+            \item If a link or node fails, whole VC fails
+        \end{itemize}
+        \item Crossbar Switch
+        \begin{itemize}
+            \item Every input had a packet to send to a given output at the same time
+        \end{itemize}
+        \item Knockout Switch
+        \begin{itemize}
+            \item For some $L<n$, $L$ inputs have a packet to send to a given output at the same time
+            \item Play packets against each other in a knockout tounament, selecting $L$ winners
+        \end{itemize}
+    \end{itemize}
+    \section{Routing}
+    \begin{itemize}
+        \item Routing: Used to deliver packets between nonadjacent nodes in a network
+        \item Route Discovery: Used to discover a route, precedes routing
+        \item Routing table: Contains an entry for each possible destination with its out-going link
+        \item Source Routing: Table entries contain a complete path from source to destination
+        \item Virtual circuit routing: Table used to maintain virtual circuits between nodes
+        \item LANs with some MAC sublayer can be interconnected by a bridge
+        \item Autonomous systems
+        \begin{itemize}
+            \item Consists of a number of subnets exchanging packets via routes
+            \item Interior routing protocol
+        \end{itemize}
+        \item Routers used to connect different AS are gateways
+        \item Protocols used by gateways are external routing protocols
+        \item Distance vector routing
+        \begin{itemize}
+            \item Idea of shortest path routing handling topology changes
+            \item Routing table with (dest, nexthop, and distance) tuples
+            \item Each node periodically broadcasts its distance vector to neighbors
+            \item If a node or link crashes, a neighbor sets its distance to $\infty$
+            \item If a node is repaired or entered, a neighbor serts its distance to 1
+            \item Nodes locally maintain their own info
+            \item convergence: Getting consistent routing info
+            \item Routing cost tables: each node
+            \begin{itemize}
+                \item Transmit its vector to all neighbors
+                \item receives vectors from all neighbors
+                \item Updates its vector on the basis of what it receives
+            \end{itemize}
+        \end{itemize}
+        \item Linkk State protocols
+        \begin{itemize}
+            \item Each node maintains state info of all links in the network
+            \item When a state changes, node broadcasts info to all nodes in network (flooding)
+            \item Node maintains 2 data structures
+            \begin{itemize}
+                \item Tree containing nodes which are ``are''
+                \item List of candidates
+            \end{itemize}
+            \item Each router constructs a link state packet containing
+            \begin{itemize}
+                \item ID of node that created the packet
+                \item List of all neighbors together with cost
+                \item sequence number
+                \item A time to live (TTL) for this packet
+            \end{itemize}
+        \end{itemize}
+        \item Flooding: sends a packet to all edges but the one you recieved a packet from
+        \item Breadth-First-Search-Tree
+        \begin{itemize}
+            \item Spanning tree of a graph where for every node, the tree path is the min-hop path to root
+            \item Uses FIFO queue
+            \item Finding all nodes within one connected component
+            \item Finding Shortest path between a node
+            \item \textbf{Dijkstra's Algorithm}: Computes weights of path 
+        \end{itemize}
+        \item Spanning Trees
+        \begin{itemize}
+            \item Subnetwork containing no cycles \& includes all nodes of network
+            \item Min weight spanning tree is a ST of min weight
+            \item Prim's Algorithm: $O(|E|+|V|\log|V|)$
+            \item Kruskal's Algorithm: sort edges in increasing order, add edges to tree if not cycle. $O(|E|\log|E|)$
+        \end{itemize}
+        \item Link-state: Foster convergence, multiple paths for routing
+        \item Distance-vector: Simple structure, less required storage space
+        \item Delay Metric: (Depart Time - Arrival Time) + transmission Time + Latency
+        \item Internet is heterogeneous
+        \item CIDR aggregates routes, addresses assigned as a block
+    \end{itemize}
+    \section{Internetworking}
+    \begin{itemize}
+        \item IPV4: Connectionless protocol for use on packet switched link layer networks
+        \item Internetwork
+        \begin{itemize}
+            \item Arbitrary collection of networks interconnected to provide h-h packet delivery
+            \item Interconnected with routers or gateways
+        \end{itemize}
+        \item IPV4 datagrams consist of a header plus a number of data bytes
+        \item IP based internets designed to support delay insensitive applications
+        \item IP with no options is 20 bytes
+        \item IHL is header length in 32-bit words
+        \item TOS provides guidance on selecting next hop. Subfield provides route selection
+        \item Procedence subfield indicates degree of urgency
+        \item Addressing
+        \begin{itemize}
+            \item Nodes have both a net ID and a host Id
+            \item All hosts connected to the same network have some net ID
+            \item Total length is 32 bits: class, IVet-ID, Host-ID
+            \item 5 classes: A-E
+            \begin{center}
+            \begin{tabular}{| c | c | c |}
+                \hline
+                class & Net ID & Host ID \\
+                \hline
+                A & 7 bits & 24 bits \\
+                B & 14 bits & 16 bits \\
+                C & 21 bits & 8 bits \\
+                \hline
+            \end{tabular}
+            \end{center}
+            \item D is for multicasting
+            \item E is for experiments
+            \item ID's with all 1s or 0s are for broadcasting
+        \end{itemize}
+        \item IP address defines a hosts connection to its network
+        \item class A,B,C only 2 levels
+        \item Subnetting
+        \begin{itemize}
+            \item Rest of internet doesn't need to know of the subnet
+            \item 3 levels: net ID, Subnet ID, Host ID
+            \item Subnet is a logical subdivision of an IP network
+            \item provides routing boundaries
+        \end{itemize}
+        \item IP Masking
+        \begin{itemize}
+            \item 32-bit num masking an IP address
+            \item More supported networks, flexibility allocates address space
+            \item Extracts address of physical network from an IP address
+        \end{itemize}
+        \item Subnetting takesa a single IP address and allocates it to several physcal networks
+        \item Subnet masking
+        \begin{itemize}
+            \item Network number shared among multiple networks
+            \item all hosts on the same network have the same subnet number
+            \item Bitwise and address and subnet mask gives subnet number
+        \end{itemize}
+        \item IPV6 uses 128 bit addresses, can address upto $2^{128}=(2^{32})^4$ hosts
+        \item IPV6 nodes automatically identity routes on the subnet
+    \end{itemize}
+    \section{TCP}
+    \begin{itemize}
+        \item UDP
+        \begin{itemize}
+            \item Establishing low latency, loss-tolerating connections between applications
+            \item Extends host-to-host into process to process
+        \end{itemize}
+        \item Ports
+        \begin{itemize}
+            \item number mapping published periodically in an RFC, available in /etc/services/
+            \item Implement by message queue
+        \end{itemize}
+        \item UDP suitable for purposes where error checking/correction is not necessary or performed in the application. Used by time-sensitive applications
+        \item TCP is a byte oriented protocol, decides to send when it collected enough bytes
+        \item Timer implemented to retransmit if taking too long
+        \item All connections start in closed state
+        \item Each byte/segment transmitted has a sequence number
+        \item TCP has no ACK, contains a timer (slightly above round trip delay)
+        \begin{itemize}
+            \item $ARRt(k)=\frac{1}{k}$
+        \end{itemize}
+        \item No distributed control binding TCP entities, use sliding window for control
+        \item Measure RTT to learn traffic behaviour, use RTO (timeout to improve performance)
+        \item If link is overloaded, packet are lost and source slows down
+        \begin{itemize}
+            \item Increases speed again until congestion occurs again
+        \end{itemize}
+        \item Flow doesn't know how many flows share a link
+        \item Conjestion window directs size of sliding window
+        \item $E[change]=I(w)(I-P)+(-D(w))P = 0$
+    \end{itemize}
+
+\end{document}
